@@ -33,16 +33,16 @@ jobs:
       - run:
           name: Check
           command: ls -la
-
-working_directory: ~/repo
-  machine: true
-  steps:
-  - restore_cache:
-  keys:
-  - site
-  - run:
-    name: deploy S3
-    command: aws s3 sync build s3:ener-auction-develop
+deploy:
+    working_directory: ~/repo
+      machine: true
+      steps:
+      - restore_cache:
+      keys:
+      - site
+      - run:
+        name: deploy S3
+        command: aws s3 sync build s3:ener-auction-develop
 
 workflows:
   version: 2

@@ -34,9 +34,6 @@ jobs:
           name: Check
           command: ls -la
   deploy:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10
 
     working_directory: ~/repo
 

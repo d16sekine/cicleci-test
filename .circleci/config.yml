@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/repo
+    working_directory: ~/testapp
 
     steps:
       - checkout
@@ -32,12 +32,11 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn test
+
+      - run: yarn build       
 
   deployment:
     prod:
-      branch: master
+      branch: develop
       commands:
-        - aws s3 sync . s3://ener-auction-develop/test/ --delete
+        - aws s3 sync test s3://ener-auction-develop/test/ --delete

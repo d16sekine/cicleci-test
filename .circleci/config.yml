@@ -33,12 +33,25 @@ jobs:
       - run:
           name: Check
           command: ls -la
+          
+      - run:
+          name: Check2
+          command: pwd
+
+      - persist_to_workspace: 
+          root: .
+
   deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
 
     working_directory: ~/repo
 
     steps:
-      - checkout
+
+      - attach_workspace:
+                at: /tmp/workspace
       - run:
           name: install aws cli
           command: sudo apt-get -y -qq install awscli
@@ -48,6 +61,7 @@ jobs:
       - run:
           name: deploy S3
           command: aws s3 sync build s3://ener-auction-develop/
+      
 
 workflows:
   version: 2

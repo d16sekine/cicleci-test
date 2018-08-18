@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - checkout
-      
+
       - run:
           name: Check
           command: ls -la
@@ -41,4 +41,4 @@ jobs:
 
       - run:
           name: Check
-          command: ls -la dist
+          command: ls -la

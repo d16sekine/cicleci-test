@@ -50,7 +50,7 @@ jobs:
 
       - attach_workspace:
           at: ~/repo
-          
+
       - run:
           name: install aws cli
           command: sudo apt-get -y -qq install awscli
@@ -59,7 +59,7 @@ jobs:
           command: ls -la
       - run:
           name: deploy S3
-          command: aws s3 sync build s3://ener-auction-develop/
+          command: aws s3 sync build s3://ener-auction-develop/build/
       
 
 workflows:

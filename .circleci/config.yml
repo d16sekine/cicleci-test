@@ -40,6 +40,8 @@ jobs:
 
       - persist_to_workspace: 
           root: ~/repo
+          paths:
+            - build/*
 
   deploy:
     docker:

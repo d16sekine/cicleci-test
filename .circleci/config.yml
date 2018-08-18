@@ -34,9 +34,3 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn build       
-
-  deployment:
-    prod:
-      branch: develop
-      commands:
-        - aws s3 sync test s3://ener-auction-develop/test/ --delete

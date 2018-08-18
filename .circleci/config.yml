@@ -42,9 +42,13 @@ jobs:
 
     steps:
       - run:
-          name: deploy S3
+        name: Install aws cli
           command:
-            apt-get update && apt-get install -y awscli 
+            sudo apt-get -y -qq install awscli
+            
+      - run:
+        name: deploy S3
+          command:
             aws s3 sync build s3://ener-auction-develop/
 
 workflows:

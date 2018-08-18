@@ -14,13 +14,13 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/workspace
+    working_directory: ~/repo
 
     steps:
       - checkout
       - run:
           name: Check dist
-          command: ls -la dist
+          command: ls -la
       - run:
           name: Install dependencies
           command: yarn

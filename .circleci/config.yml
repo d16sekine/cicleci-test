@@ -59,7 +59,7 @@ jobs:
           command: ls -la
       - run:
           name: deploy S3
-          command: aws s3 sync build s3://ener-auction-develop/build/
+          command: aws s3 sync build s3://ener-auction-develop/
       
 
 workflows:
@@ -70,6 +70,6 @@ workflows:
       - deploy:
           requires: # buildが成功したら実行する
             - build
-          filters: # developブランチの場合のみデプロイする
-            branches:
-              only: develop
+          # filters: # developブランチの場合のみデプロイする
+          #   branches:
+          #     only: develop
